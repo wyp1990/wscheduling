@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.iscas</groupId>
+    <artifactId>wscheduling</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>task-service</module>
+        <module>akka-test</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <om.devs.version>1.0-SNAPSHOT</om.devs.version>
+
+        <java.version>1.8</java.version>
+        <maven.plugin.version>3.8.0</maven.plugin.version>
+
+        <spring.boot.version>2.5.2</spring.boot.version>
+        <spring.cloud.version>2020.0.3</spring.cloud.version>
+        <alibaba.cloud.version>2021.1</alibaba.cloud.version>
+        <alibaba.nacos.version>2.0.2</alibaba.nacos.version>
+        <alibaba.seata.version>1.4.2</alibaba.seata.version>
+
+        <hutool.version>5.2.4</hutool.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-io.version>2.6</commons-io.version>
+        <guava.version>28.2-jre</guava.version>
+
+        <mybatis.plus.version>3.4.3.2</mybatis.plus.version>
+        <mybatis.enhance.actable.version>1.5.0.RELEASE</mybatis.enhance.actable.version>
+        <mybatis.plus.generator.version>3.4.1</mybatis.plus.generator.version>
+        <mybatis.spring.boot.version>2.2.0</mybatis.spring.boot.version>
+        <druid.version>1.1.22</druid.version>
+
+        <minio.version>8.0.3</minio.version>
+        <weixin-java.version>4.1.5.B</weixin-java.version>
+        <hibernate.validator.version>6.2.0.Final</hibernate.validator.version>
+
+        <powerjob.worker.starter.version>4.0.1</powerjob.worker.starter.version>
+        <powerjob.version>4.0.1</powerjob.version>
+        <fastjson.version>1.2.68</fastjson.version>
+        <powerjob.official.processors.version>1.1.0</powerjob.official.processors.version>
+
+        <zipkin.version>2.1.0.RELEASE</zipkin.version>
+
+        <redisson.version>3.15.1</redisson.version>
+        <logstash-logback-encoder.version>6.6</logstash-logback-encoder.version>
+        <elasticsearch.version>7.10.1</elasticsearch.version>
+        <dozer.version>6.2.0</dozer.version>
+
+        <dynamic.datasource.version>3.5.1</dynamic.datasource.version>
+
+        <log4j2.version>2.17.0</log4j2.version>
+
+        <swagger.version>1.6.2</swagger.version>
+        <knife4j.version>2.0.9</knife4j.version>
+
+        <xxl-job-core.version>2.4.0-SNAPSHOT</xxl-job-core.version>
+
+        <jetcache.version>2.6.6</jetcache.version>
+        <!--        <jetcache.version>2.5.14</jetcache.version>-->
+        <protostuff.version>1.6.0</protostuff.version>
+        <disruptor.version>3.4.2</disruptor.version>
+        <spring.boot.admin.version>2.3.1</spring.boot.admin.version>
+        <mica.auto.version>1.2.5</mica.auto.version>
+
+        <easy.rules.version>4.1.0</easy.rules.version>
+
+        <docker.image.prefix>OmDevs</docker.image.prefix>
+        <kaptcha.version>2.3.2</kaptcha.version>
+
+        <spring.plugin.version>2.0.0.RELEASE</spring.plugin.version>
+
+
+        <spring.platform.version>Cairo-SR8</spring.platform.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <lombok.version>1.18.20</lombok.version>
+
+        <ini4j.version>0.5.4</ini4j.version>
+
+        <junrar.version>7.5.1</junrar.version>
+
+        <drools.version>7.7.0.Final</drools.version>
+
+        <spring.boot.maven.plugin.version>2.1.4.RELEASE</spring.boot.maven.plugin.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+
+        <junit.version>4.12</junit.version>
+
+        <akka.version>2.7.0</akka.version>
+        <akka.http.version>10.4.0</akka.http.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+
+
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-jul</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--      <dependency>-->
+            <!--        <groupId>com.alibaba.cloud</groupId>-->
+            <!--        <artifactId>spring-cloud-starter-alibaba</artifactId>-->
+            <!--        <version>2.1.0.RELEASE</version>-->
+            <!--      </dependency>-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+
+
+            <!--MB-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <!--mybatis数据库表生成工具-->
+            <dependency>
+                <groupId>com.gitee.sunchenbin.mybatis.actable</groupId>
+                <artifactId>mybatis-enhance-actable</artifactId>
+                <version>${mybatis.enhance.actable.version}</version>
+            </dependency>
+            <!--德鲁伊-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!--缓存-->
+            <dependency>
+                <groupId>com.alicp.jetcache</groupId>
+                <artifactId>jetcache-starter-redis</artifactId>
+                <version>${jetcache.version}</version>
+            </dependency>
+
+            <!--工具-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!--log4j-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-jul</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+
+            <!--类型转换工具-->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <!--ini工具-->
+            <dependency>
+                <groupId>org.ini4j</groupId>
+                <artifactId>ini4j</artifactId>
+                <version>${ini4j.version}</version>
+            </dependency>
+
+            <!--rar工具-->
+            <dependency>
+                <groupId>com.github.junrar</groupId>
+                <artifactId>junrar</artifactId>
+                <version>${junrar.version}</version>
+            </dependency>
+
+            <!--Swagger-->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-ui</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+
+            <!-- ELK -->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback-encoder.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+
+            <!--Sleuth依赖-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
+
+            <!-- 分布式锁 -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <!--单元测试-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <!--akka-->
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-actor_3</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-stream_3</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-slf4j_3</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-http_2.13</artifactId>
+                <version>${akka.http.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-cluster_3</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-remote_3</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>
