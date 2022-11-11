@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>akka-test</artifactId>
+    <artifactId>akka-base</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -20,14 +20,20 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor-typed_2.13</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor_3</artifactId>
+            <artifactId>akka-cluster-typed_2.13</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-serialization-jackson_2.13</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
