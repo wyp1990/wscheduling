@@ -354,6 +354,13 @@
                 <artifactId>akka-cluster-typed_2.13</artifactId>
                 <version>${akka.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-serialization-jackson_2.13</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.typesafe.akka</groupId>
                 <artifactId>akka-remote_3</artifactId>
